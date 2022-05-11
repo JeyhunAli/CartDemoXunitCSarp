@@ -13,6 +13,7 @@ using WebDriverManager.DriverConfigs.Impl;
 using WebDriverManager.Helpers;
 using Xunit;
 
+
 namespace OpenCartDemo
 {
     public class ToDoTest2: IDisposable
@@ -35,13 +36,37 @@ namespace OpenCartDemo
 
         }
 
-       
 
-        [Fact]
-        public void verifyToDopage()
+        //to do this test data driven another attribute is [Theory]
+        // if there thery attribute means we have to pass param
+        [Theory]
+        [InlineData("Backbone.js")]
+        [InlineData("AngularJS")]
+        [InlineData("React")]
+        [InlineData("Vue.js")]
+        [InlineData("CanJS")]
+        [InlineData("KnockoutJS")]
+        [InlineData("Marionette.js")]
+        [InlineData("Polymer")]
+        [InlineData("Angular 2.0")]
+        [InlineData("Dart")]
+        [InlineData("Elm")]
+        [InlineData("Closure")]
+        [InlineData("Vanilla JS")]
+        [InlineData("jQuery")]
+        [InlineData("cujoJS")]
+        [InlineData("Spine")]
+        [InlineData("Dojo")]
+        [InlineData("Mithril")]
+        [InlineData("Kotlin + React")]
+        [InlineData("Firebase + AngularJS")]
+        [InlineData("Vanilla ES6")]
+        [InlineData("Ember.js")]
+
+        public void verifyToDopage(string techno)
         {
             driver.Navigate().GoToUrl("https://todomvc.com/");
-            openTechAPP("React");
+            openTechAPP(techno);
 
 
 
@@ -54,8 +79,8 @@ namespace OpenCartDemo
            IWebElement appLink = WaitAndFindElement(By.LinkText(name));
            appLink.Click();
             addnewItemToReact("Clean the console");
-            addnewItemToReact("Clean the DB");
             addnewItemToReact("Clean the Code");
+            addnewItemToReact("Clean the DB");
 
             checkItemCheckBox("Clean the console").Click();
             AssertLeftItems(2);
