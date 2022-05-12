@@ -1,3 +1,31 @@
 ﻿if we have constructor in framework or in any class 
 it means when ever we create object of that class thats constructor will be called 
 cunstructor is always same name as class name
+
+now how we can run these tests uh in parallel  using x unit actually running unit tests in  
+there are  two modes of friendly testing parallel  
+parallel tests with runners and parallel tests  in test framework so we are going to talk about  
+ it uses basically x unit uses  the concept called collections  
+ one test class here is a collection by default  however you can create a custom collection on  
+top of if you use this collection attributes for  example here we can create this collection chrome
+before you are able to run the tests in parallel  first we need to create a json configuration file
+first you need to search for json format  
+1:41:18
+select json file and we'll name it 
+xunit.runner.json 
+and inside of it we need to place     
+{
+  "parallelizeAssembly": true,
+  "parallelizeTestCollections": true
+
+}
+thenright click to json file properties copy to output directory -> copy always 
+it will copy always to the bin folder 
+
+this line has to be only one cllass in order to run parallel
+[assembly: CollectionBehavior(CollectionBehavior.CollectionPerClass, MaxParallelThreads =4)]
+
+
+in x units it's called share  context between tests it's common for system  
+and ui tests to share setup and clean a code it's  often called test context
+

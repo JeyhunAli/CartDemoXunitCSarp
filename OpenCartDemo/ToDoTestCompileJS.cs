@@ -13,10 +13,10 @@ using WebDriverManager.DriverConfigs.Impl;
 using WebDriverManager.Helpers;
 using Xunit;
 
-[assembly: CollectionBehavior(CollectionBehavior.CollectionPerClass, MaxParallelThreads =4)]
+
 namespace OpenCartDemo
 {
-    public class ToDoTest2: IDisposable
+    public class ToDoTestCompileJS : IDisposable
     {
         private const int WAIT_TIMEOUT = 30;
         private readonly IWebDriver driver;
@@ -25,7 +25,7 @@ namespace OpenCartDemo
 
 
         //ctor click 2 times to Tab generate constructor
-        public ToDoTest2()
+        public ToDoTestCompileJS()
         {
             new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
             driver = new ChromeDriver();
@@ -40,18 +40,18 @@ namespace OpenCartDemo
         //to do this test data driven another attribute is [Theory] with inlineData attribute
         // if there thery attribute means we have to pass param
         [Theory]
-        [InlineData("Backbone.js")]
-        [InlineData("AngularJS")]
-        [InlineData("React")]
-        [InlineData("Vue.js")]
-        [InlineData("CanJS")]
-        [InlineData("KnockoutJS")]
-       // [InlineData("Marionette.js")]
-        [InlineData("Polymer")]
-        [InlineData("Vanilla JS")]
-        [InlineData("jQuery")]
-        [InlineData("Dojo")]
-        [InlineData("Ember.js")]
+        [InlineData("Closure")]
+        [InlineData("Dart")]
+        [InlineData("Elm")]
+       // [InlineData("cujoJS")]
+        [InlineData("Spine")]
+        [InlineData("Angular 2.0")]
+        [InlineData("Mithril")]
+        [InlineData("Kotlin + React")]
+        [InlineData("Firebase + AngularJS")]
+        [InlineData("Vanilla ES6")]
+
+   
 
         public void verifyToDopage(string techno)
         {
